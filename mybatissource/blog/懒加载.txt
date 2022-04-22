@@ -1,0 +1,46 @@
+延迟加载、侵入式加载配置项  需要在mybatis.xml中配置
+<!--延迟加载-->
+<setting name= "lazyLoadingEnabled" value= "true"/>
+<!--侵入式加载-->
+<setting name="aggressiveLazyLoading" value="false"/>
+
+mybatis加载分为三种方式
+1、直接加载  -- 执行主查询时同时执行子查询  即直接返回一个完整结果
+2、侵入式加载 -- 执行主查询时不执行子查询 当主查询返回结果被调用时执行子查询
+3、懒加载（深度延迟加载） -- 执行主查询时不执行子查询，只有当主查询返回结果中的子查询结果被调用时才执行子查询
+
+嵌套查询中使用
+select返回结果为resultMap类型 resultMap中嵌入了另外的查询
+即一条查询结果中包含其他需要查询的数据
+例：
+
+=====================一对多=================
+
+-- 子查询
+    <select id = "test1" resultType = "com.dwk.xxx">
+    </select>
+
+-- 主查询
+    <select id = "test2" resultMap = "RESULT">
+    </select>
+
+-- 主查询返回结果
+    <resultMap id = "RESULT" type = "OBJECT">
+    <id column = "" property = ""> -- 主键和对象对应属性
+    <result column = "" property = ""> -- 字段和对象对应属性
+    <collection property = ""  -- 属性名
+                ofType = ""  -- 属性所属对象
+                select = "test1" -- 查询标签
+                column = ""> -- 对应列
+    </collection>  -- 集合
+
+======================一对一=================
+
+    <resultMap id = "RESULT" type = "OBJECT">
+    <id column = "" property = ""> -- 主键和对象对应属性
+    <result column = "" property = ""> -- 字段和对象对应属性
+    <association property = "" -- 指定映射到实体类的对象属性
+                 select = "" -- 查询标签
+                 column = "" -- 表中对应的字段(查询返回的列名)
+                 javaType = ""> -- 映射到实体对象属性的类型
+

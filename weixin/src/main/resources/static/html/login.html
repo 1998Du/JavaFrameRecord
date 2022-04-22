@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!--静态资源放在另外的端口，当请求访问此处时会将login.html当作请求-->
+    <meta charset="UTF-8">
+    <title>登录页面</title>
+</head>
+<body>
+    <div>
+        <input type="text" placeholder="账号"><br>
+        <input type="password" placeholder="密码"><br>
+        <input type="submit" id="login" value="登录">
+    </div>
+</body>
+
+<script src="../js/jquery-3.4.1.min.js"></script>
+<script type="application/javascript">
+
+    var code;
+    var openId;
+
+    /**
+    * 微信登录
+    * 加载时就请求/getOpenId，将返回的openId存储，在用户使用账号密码登录时发送给/login/{openId}*/
+    $(function () {
+        if (getCode("code")){
+            code = getCode("code");
+            $.ajax({
+                url:"/getOpenId",
+                type:"get",
+                data:{code:code},
+                dataType:"json",
+                success:function(result){
+                    //请求====>http://localhost:18001/login/result
+
+                }
+            });
+        }
+    });
+
+    /**
+     * http://localhost:18001/login/{userName}/{passWord}
+     * 账户密码登录
+     *
+     * */
+    $("#login").click(function () {
+
+        $.ajax({
+            url:"http://192.168.2.26:18001/login/"+openId,
+            type:"get",
+            data:{openId:openId},
+            dataType:"json",
+            success:function (result) {
+                if (result!=null){
+                    alert(data);
+                }
+                //alert(data);
+                //alert("success");
+            }
+        })
+    });
+
+    //获取url中的参数
+    function getCode(paraName) {
+        var url = document.location.toString();
+        var arrObj = url.split("?");
+        if (arrObj.length > 1) {
+            var arrPara = arrObj[1].split("&");
+            var arr;
+            for (var i = 0; i < arrPara.length; i++) {
+                arr = arrPara[i].split("=");
+                if (arr != null && arr[0] == paraName) {
+                    return arr[1];
+                }
+            }
+            return "";
+        }
+        else {
+            return "";
+        }
+    }
+
+
+</script>
+
+</html>
