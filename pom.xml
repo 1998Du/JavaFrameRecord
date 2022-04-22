@@ -23,7 +23,6 @@
 		<module>kafka</module>
 		<module>oss</module>
 		<module>redis</module>
-		<module>login</module>
 		<module>weixin</module>
         <module>rabbitmq</module>
         <module>sftp</module>
@@ -34,7 +33,6 @@
         <module>mysql</module>
         <module>timetask</module>
         <module>encryption</module>
-        <module>SpringBootAutoConfig</module>
         <module>util</module>
         <module>designmodel</module>
     </modules>
