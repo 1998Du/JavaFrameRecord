@@ -6,7 +6,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 
 /**
- * ReentrantLock源码机制
+ * ReentrantLock源码机制 - 独占锁
  * 内部维护两种锁机制  公平锁和非公平锁
  * 无参创建时默认非公平锁
  * 有参创建时true创建公平锁   false创建非公平锁
