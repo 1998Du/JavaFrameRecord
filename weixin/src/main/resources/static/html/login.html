@@ -46,7 +46,7 @@
     $("#login").click(function () {
 
         $.ajax({
-            url:"http://192.168.2.26:18001/login/"+openId,
+            url:"http://localhost:18001/login/"+openId,
             type:"get",
             data:{openId:openId},
             dataType:"json",
