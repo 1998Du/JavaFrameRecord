@@ -35,7 +35,9 @@
         <module>encryption</module>
         <module>util</module>
         <module>designmodel</module>
-    </modules>
+        <module>io</module>
+		<module>netty</module>
+	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>
