@@ -1,0 +1,31 @@
+server:
+  port: 3333
+
+spring:
+  application:
+    name: FILE-BACK
+
+eureka:
+  instance:
+    hostname: localhost
+    appname: FileBack
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    healthcheck:
+      enabled: false
+
+filepath:
+  #是否开启
+  open: true
+  #定时执行
+  cron: '*/5 * * * * ?'   #朝九晚五每隔半小时触发一次
+  #源路径,数组类型
+  sourcePath:
+    - 'C:\Users\DWK\Desktop\测试文件.txt'
+    - 'C:\Users\DWK\Desktop\back'
+  #目标路径
+  targetPath: 'C:\Users\DWK\Desktop\备份文件夹'
+

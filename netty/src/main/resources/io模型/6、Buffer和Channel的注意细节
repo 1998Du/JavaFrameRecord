@@ -1,0 +1,4 @@
+1、ByteBuffer支持类型化的put和get，put放入的是什么数据类型  get就应该使用相应的类型来取出
+2、可以改变Buffer的可读性
+3、NIO提供MappedByteBuffer，可以直接让文件在内存中修改(堆外内存)，相当于直接在操作系统上操作文件而不用再拷贝一份进行操作，效率快但是不安全
+4、读写操作可以通过一个Buffer来操作，NIO还支持通过多个Buffer操作即Buffer数组形式操作
