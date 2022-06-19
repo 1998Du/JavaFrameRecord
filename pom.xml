@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -16,27 +16,25 @@
 	<name>NewBee</name>
 	<description>常用框架技术</description>
 
-    <modules>
-        <module>elastic</module>
+	<modules>
+		<module>elastic</module>
 		<module>eureka</module>
 		<module>jpa</module>
-		<module>kafka</module>
 		<module>oss</module>
 		<module>redis</module>
 		<module>weixin</module>
-        <module>rabbitmq</module>
-        <module>sftp</module>
-        <module>mybatissource</module>
-        <module>jvm</module>
+		<module>sftp</module>
+		<module>mybatissource</module>
+		<module>jvm</module>
 		<module>mongo</module>
-        <module>java-basic</module>
-        <module>mysql</module>
-        <module>timetask</module>
-        <module>encryption</module>
-        <module>util</module>
-        <module>designmodel</module>
-        <module>io</module>
+		<module>java-basic</module>
+		<module>mysql</module>
+		<module>timetask</module>
+		<module>encryption</module>
+		<module>util</module>
+		<module>designmodel</module>
 		<module>netty</module>
+		<module>mq</module>
 	</modules>
 
 	<properties>
@@ -64,7 +62,7 @@
 		<dependency>
 			<groupId>com.alibaba</groupId>
 			<artifactId>fastjson</artifactId>
-			<version>1.2.59</version>
+			<version>1.2.83</version>
 		</dependency>
 		<!--redis-->
 		<dependency>
@@ -81,7 +79,7 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 		</dependency>
-        <!--内嵌tomcat-->
+		<!--内嵌tomcat-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
