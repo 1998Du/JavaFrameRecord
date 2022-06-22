@@ -10,6 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>util</artifactId>
+    <packaging>pom</packaging>
+    <modules>
+        <module>fileback</module>
+        <module>rest-template</module>
+    </modules>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
