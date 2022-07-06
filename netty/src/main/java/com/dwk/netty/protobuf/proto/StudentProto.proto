@@ -1,0 +1,15 @@
+//版本
+syntax = "proto3";
+//加快解析
+option optimize_for = SPEED;
+//指定文件生成路径
+option java_package = "com.dwk.netty.protobean";
+//生成的外部类名，也是文件名
+option java_outer_classname = "StudentBean";
+//会在StudentBean外部类生成一个内部类StudentProto即真正发送的对象
+message StudentProto{
+  //StudentBean中的属性 = 后面表示的是顺序不是值
+  int32 id = 1;
+  string name = 2;
+}
+
