@@ -12,14 +12,6 @@ public class Test {
     }
 
     /**
-     * 字符串截取
-     */
-    static void subString(){
-        String str = "C:\\Users\\13791\\Desktop\\fileBack.zip";
-        System.out.println(str.substring(str.indexOf(".")));
-    }
-
-    /**
      * 不管try和catch里怎么执行   finally最后一定会被执行
      */
     static void finallyTest(){
