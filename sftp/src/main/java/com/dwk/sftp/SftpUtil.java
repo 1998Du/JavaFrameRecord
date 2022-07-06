@@ -1,13 +1,20 @@
 package com.dwk.sftp;
 
 import com.jcraft.jsch.*;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
+import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
+import java.io.InputStreamReader;
 
 /**
  * 连接远程服务器工具类
  */
 public class SftpUtil {
+
+    private static final Logger log = LoggerFactory.getLogger(SftpUtil.class);
 
     /**消息通道*/
     private static ChannelSftp sftp;
@@ -72,6 +79,40 @@ public class SftpUtil {
                 System.out.println("session is close already");
             }
         }
+    }
+
+    /**
+     * 执行命令
+     */
+    public static String runShell(String cmd){
+        String returnStr = null;
+        try {
+            ChannelExec channelExec = (ChannelExec) session.openChannel("exec");
+            channelExec.setCommand(cmd);
+            channelExec.connect();
+
+            StringBuilder resultLog = new StringBuilder("");
+            BufferedReader resultReader = new BufferedReader(new InputStreamReader(channelExec.getInputStream()));
+            String resultLine = null;
+            while ((resultLine = resultReader.readLine()) != null){
+                resultLog.append(resultLine).append("\n");
+            }
+            returnStr = resultLog.toString();
+
+            StringBuilder errLog = new StringBuilder("");
+            BufferedReader errorReader = new BufferedReader(new InputStreamReader(channelExec.getErrStream()));
+            String errorLine = null;
+            while ((errorLine = errorReader.readLine()) != null){
+                errLog.append(errorLine).append("\n");
+            }
+
+        } catch (JSchException e) {
+            log.error("shell命令执行错误");
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        return returnStr;
     }
 
     /**
