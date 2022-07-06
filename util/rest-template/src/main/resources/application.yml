@@ -1,0 +1,18 @@
+server:
+  port: 8000
+
+spring:
+  application:
+    name: TEST-RESTTEMPLATE
+
+eureka:
+  instance:
+    hostname: localhost
+    appname: REST-TEMPLATE
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    healthcheck:
+      enabled: false

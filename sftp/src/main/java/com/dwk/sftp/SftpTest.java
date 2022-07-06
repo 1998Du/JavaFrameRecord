@@ -12,11 +12,12 @@ public class SftpTest {
     private static final String SHUTDOWN = "=======输入shutdown关闭连接=====";
 
     public String scan(){
+        System.out.format("\33[36;4m> ");
         return new Scanner(System.in).next();
     }
 
     public void print(String tip){
-        System.out.println(tip);
+        System.out.format("\33[33;4m" + tip + "%n");
     }
 
     public void test(){
@@ -32,9 +33,15 @@ public class SftpTest {
         SftpUtil.setAttr(host,port,username,password);
         SftpUtil.login();
         print(SHUTDOWN);
-        String command = scan();
-        if (("shutdown").equals(command)){
-            SftpUtil.shutdown();
+        while (true) {
+            String command = scan();
+            if (("shutdown").equals(command)) {
+                SftpUtil.shutdown();
+            } else {
+                //执行shell命令
+                String result = SftpUtil.runShell(command);
+                System.out.format("\33[31;4m" + result + "%n");
+            }
         }
     }
 
