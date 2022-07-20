@@ -35,6 +35,9 @@
         <module>designmodel</module>
 		<module>netty</module>
 		<module>mq</module>
+        <module>nacos</module>
+		<module>springsecurity</module>
+		<module>springcloudgateway</module>
 	</modules>
 
 	<properties>
