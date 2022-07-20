@@ -1,0 +1,10 @@
+spring boot和nacos版本需要对应
+否则nacos很容易启动失败
+
+
+
+试过两个可用的版本:
+
+spring boot: 2.4.x    nacos: 2.2.5.RELEASE
+
+spring boot: 2.3.2.RELEASE  nacos: 2.2.1.RELEASE
