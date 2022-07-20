@@ -12,32 +12,37 @@
     ->  加解密相关
 ### eureka 
     ->  eureka 服务端模块，本来想着看源码的 后来觉得nocas可能更好一点就简单的部署了一下 可以打成jar包本地使用
-### io
-    ->  暂未开始，IO模块，预备后期学习
 ### java-basic
     ->  java基础相关，集合、多线程等 专门用于研究底层
 ### jpa 
     ->  jpa的简单使用，jpa底层是对hibernate的封装 如果简单sql的话用jpa是个很好的选择 但是复杂sql感觉还是mybatis好一点
 ### jvm
     ->  jvm相关
-### kafka 
-    ->  暂未开始，kafka3已经可以不依赖zookeeper 之后研究一下kafka3
 ### mongo
     ->  mongoDb使用学习，定义了mongoDb多连接及一个责任链获取库里的数据反射组装后比对属性数据
+### mq
+    -> 几种消息中间件
+    -> 1、emq(物联网领域内使用广泛)
+    -> 2、kafka(速度快，3.0版本已经不依赖于zookeeper)
+    -> 3、rabbitmq(基于Java)
 ### mybatissource
     ->  mybatis源码学习
 ### mysql
     ->  尚硅谷mysql高级教学资料 【侵权删】！！！
+### nacos
+    -> nacos的基础使用
 ### netty
-    ->  暂未开始，netty模块，预备后期学习
+    ->  netty基本使用 + BIO、NIO + netty学习笔记总结
 ### oss 
     ->  oss对象存储
-### rabbitmq
-    ->  rabbitmq使用学习
 ### redis
     ->  redis基础使用学习，分布式锁、分布式事务的实现还不包含 读写一致性也要研究一下
 ### sftp
     ->  基于jsch实现的一个ssh工具 上传已经实现
+### springcloudgateway
+    -> spring cloud gateway(网关)基本使用
+### springsecurity
+    -> spring security(鉴权) 基本使用 + JWT
 ### timetask
     ->  定时任务
 ### util
