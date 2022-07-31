@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset = "utf-8">
+<head>
+    <title>Hello WebSocket</title>
+    <script src="https://cdn.bootcss.com/sockjs-client/1.0.0/sockjs.min.js"></script>
+    <script src="https://cdn.bootcss.com/stomp.js/2.3.3/stomp.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+
+        var stompClient = null;
+
+        function setConnected(connected) {
+            document.getElementById('connect').disabled = connected;
+            document.getElementById('disconnect').disabled = !connected;
+            document.getElementById('conversationDiv').style.visibility = connected ? 'visible' : 'hidden';
+            document.getElementById('response').innerHTML = '';
+        }
+
+        //网关地址
+        var gatewayUrl = "http://172.18.2.98:12002";
+
+        //请求路由
+        var serviceName = "/exampleSocket";
+
+        //websocket连接端点
+        var websocketEndPoint = "/socket";
+
+        //连接
+        function connect() {
+            var socket = new SockJS("http://192.168.1.103:12003/socket");
+            stompClient = Stomp.over(socket);
+            stompClient.connect({}, function(frame) {
+                setConnected(true);
+                console.log('Connected: ' + frame);
+
+                //订阅后端广播接口
+                stompClient.subscribe('/topic/greetings',function(greeting){
+                    var message = "订阅服务端【广播】接口/topic/greetings，接收到消息：" + JSON.parse(greeting.body).message;
+                    console.log(message);
+                    showGreeting(message);
+                });
+
+                /**
+                 * 订阅后端点对点接口
+                 *
+                 * /user/queue/message ： /user为前缀，可设为静态     /queue/message
+                 *
+                 */
+                stompClient.subscribe('/user/queue/message',function(greeting){
+                    var message = "订阅服务端【点对点】接口/user/queue/message，接收到消息："+JSON.parse(greeting.body).message;
+                    console.log(message);
+                    showGreeting(message);
+                });
+
+            });
+        }
+
+        //向后端接口发送消息
+        function sendName() {
+            var name = document.getElementById('name').value;
+            //example 是后端配置的目标前缀
+            stompClient.send("/example/message", {}, JSON.stringify({ 'name': name }));
+        }
+
+        //关闭连接
+        function disconnect() {
+            if (stompClient != null) {
+                stompClient.disconnect();
+            }
+            setConnected(false);
+            console.log("Disconnected");
+        }
+
+        function showGreeting(message) {
+            var response = document.getElementById('response');
+            var p = document.createElement('p');
+            p.style.wordWrap = 'break-word';
+            p.appendChild(document.createTextNode(message));
+            response.appendChild(p);
+        }
+    </script>
+</head>
+<body>
+<noscript><h2 style="color: #ff0000">Seems your browser doesn't support Javascript! Websocket relies on Javascript being enabled. Please enable
+    Javascript and reload this page!</h2></noscript>
+<div>
+    <div>
+        <button id="connect" onclick="connect();">连接</button>
+        <button id="disconnect" disabled="disabled" onclick="disconnect();">关闭连接</button>
+    </div>
+    <div id="conversationDiv">
+        <label>向服务端发送消息:</label><input type="text" id="name" />
+        <button id="sendName" onclick="sendName();">发送</button>
+        <p id="response"></p>
+    </div>
+</div>
+</body>
+</html>

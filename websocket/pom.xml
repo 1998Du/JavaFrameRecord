@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>springsecurity</artifactId>
+    <artifactId>websocket</artifactId>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -17,16 +17,10 @@
     </properties>
 
     <dependencies>
-        <!--        security-->
+        <!-- websocket依赖 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-security</artifactId>
-        </dependency>
-        <!--        jwt-->
-        <dependency>
-            <groupId>io.jsonwebtoken</groupId>
-            <artifactId>jjwt</artifactId>
-            <version>0.9.1</version>
+            <artifactId>spring-boot-starter-websocket</artifactId>
         </dependency>
     </dependencies>
 

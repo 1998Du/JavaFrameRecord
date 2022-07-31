@@ -1,0 +1,25 @@
+server:
+  port: 12003
+
+spring:
+  application:
+    name: WEBSOCKET
+
+eureka:
+  instance:
+    hostname: localhost
+    appname: ${spring.application.name}
+  client:
+    fetch-registry: false
+    register-with-eureka: false
+    service-url:
+      defaultZone: http://localhost:8761/eureka
+    healthcheck:
+      enabled: false
+
+
+websocket:
+  websocketPrefix:
+    - "/example"
+  endPoint:
+    - "/socket"

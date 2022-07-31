@@ -48,6 +48,8 @@
 ### util
     ->  一些小工具 java -jar启动对应jar包就行
     ->  子模块：【fileback】= 定时文件、文件夹备份工具
+### websocket
+    -> websocket长连接，已可以实现通信  可以结合spring cloud gateway + spring security实现一套websocket连接框架
 ### weixin
     ->  微信公众号，大部分公众号的功能已经接入
         需要有自己的服务器或者将内网穿透到公网才可用
