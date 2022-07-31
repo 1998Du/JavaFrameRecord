@@ -38,6 +38,7 @@
         <module>nacos</module>
 		<module>springsecurity</module>
 		<module>springcloudgateway</module>
+		<module>websocket</module>
 	</modules>
 
 	<properties>
@@ -46,6 +47,12 @@
 	</properties>
 
 	<dependencies>
+		<!--		hutool工具包-->
+		<dependency>
+			<groupId>cn.hutool</groupId>
+			<artifactId>hutool-all</artifactId>
+			<version>5.4.0</version>
+		</dependency>
 		<!--lombok-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
