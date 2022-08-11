@@ -18,6 +18,8 @@
     ->  jpa的简单使用，jpa底层是对hibernate的封装 如果简单sql的话用jpa是个很好的选择 但是复杂sql感觉还是mybatis好一点
 ### jvm
     ->  jvm相关
+### leetcode
+    ->  算法
 ### mongo
     ->  mongoDb使用学习，定义了mongoDb多连接及一个责任链获取库里的数据反射组装后比对属性数据
 ### mq
