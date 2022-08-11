@@ -39,7 +39,8 @@
 		<module>springsecurity</module>
 		<module>springcloudgateway</module>
 		<module>websocket</module>
-	</modules>
+        <module>leetcode</module>
+    </modules>
 
 	<properties>
 		<java.version>1.8</java.version>
