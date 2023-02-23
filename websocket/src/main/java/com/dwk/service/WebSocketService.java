@@ -35,13 +35,13 @@ public class WebSocketService implements WebSocketInfo {
 
     /**广播消息*/
     @Override
-    @Scheduled(cron = "0/10 * * * * ?")
+    @Scheduled(cron = "0/3 * * * * ?")
     public void responseAllByScheduled() {
-        log.info("广播消息.....");
-        Map<String,String> message = new HashMap<>();
-        message.put("message", "服务端定时发送的广播消息!");
-        JSON parse = JSONUtil.parse(message);
-        simpMessageSendingOperations.convertAndSend("/topic/greetings",parse);
+//        log.info("广播消息.....");
+//        Map<String,String> message = new HashMap<>();
+//        message.put("message", "服务端定时发送的广播消息!");
+//        JSON parse = JSONUtil.parse(message);
+        //simpMessageSendingOperations.convertAndSend("/topic/greetings",parse);
     }
 
     @Override

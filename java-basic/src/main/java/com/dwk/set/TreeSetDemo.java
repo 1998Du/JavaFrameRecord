@@ -1,6 +1,6 @@
 package com.dwk.set;
 
-import java.util.TreeMap;
+import java.util.TreeSet;
 
 /**
  * 数据结构：红黑树
@@ -13,8 +13,8 @@ public class TreeSetDemo {
     }
 
     public static void test(){
-        TreeMap<Object, Object> treeMap = new TreeMap<>();
-        treeMap.put("","");
+        TreeSet<Object> treeSet = new TreeSet<>();
+        treeSet.add("");
     }
 
 }

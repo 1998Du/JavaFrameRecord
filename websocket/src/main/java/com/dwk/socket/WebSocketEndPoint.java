@@ -27,8 +27,9 @@ public class WebSocketEndPoint {
      */
     @MessageMapping("/sendAllConnect")
     @SendTo("/topic/greetings")
-    public void greeting() {
-        System.out.println("客户端连接成功!.....");
+    public void greeting(@Payload String message) {
+        log.info("客户端消息：" + message);
+        webSocketService.responseAll(message,"/topic/greetings");
     }
 
     /**

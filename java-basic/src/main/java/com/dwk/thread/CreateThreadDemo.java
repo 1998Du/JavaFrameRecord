@@ -103,6 +103,18 @@ public class CreateThreadDemo {
         }
     }
 
+    /*    7、创建线程池的几种方式
+        1、通过Executors工厂方法创建（
+                    newFixedThreadPool、  创建一个固定大小的线程池
+                    newCachedThreadPool、 带缓存的线程池，适用短时间内有大量任务的场景但有可能会占用更多的资源，线程数量随任务量而定
+                    newSingleThreadExecutors、  创建单个线程的线程池
+                    newSingleThreadScheduledExecutor、  创建执行定时任务的单个线程的线程池
+                    newScheduledThreadPool、  创建执行定时任务的线程池
+                    newWorkStealingPool  根据当前设备的配置自动生成线程池）
+        2、ThreadPoolExecutors  手动创建
+     */
+
+
 
     public static void main(String[] args) {
 
