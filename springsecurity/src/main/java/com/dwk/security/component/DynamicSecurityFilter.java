@@ -1,6 +1,6 @@
 package com.dwk.security.component;
 
-import com.sh.auth.properties.IgnoreUrlsProperties;
+import com.dwk.security.properties.IgnoreUrlsProperties;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.access.SecurityMetadataSource;

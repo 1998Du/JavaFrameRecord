@@ -11,7 +11,7 @@ import java.util.Vector;
  * 4、调用add(index,object)
  * 5、扩容：若未指定扩容容量则容量增长一倍
  * 6、最大容量：Integer.MAX_VALUE - 8
- * 7、扩容后将老数组赋值到新数组  Arrays.copyOf(elementData, newCapacity);
+ * 7、扩容后将老数组复制到新数组  Arrays.copyOf(elementData, newCapacity);
  */
 public class VectorDemo {
 
