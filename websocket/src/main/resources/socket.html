@@ -28,7 +28,7 @@
 
         //连接
         function connect() {
-            var socket = new SockJS("http://192.168.1.103:12003/socket");
+            var socket = new SockJS("http://192.168.1.101:12003/socket");
             stompClient = Stomp.over(socket);
             stompClient.connect({}, function(frame) {
                 setConnected(true);
@@ -59,8 +59,19 @@
         //向后端接口发送消息
         function sendName() {
             var name = document.getElementById('name').value;
+            var message = { 'name': name };
+            console.log("向点对点主题发送消息:" + message)
             //example 是后端配置的目标前缀
-            stompClient.send("/example/message", {}, JSON.stringify({ 'name': name }));
+            stompClient.send("/example/message", {}, JSON.stringify(message));
+        }
+
+        //向所有订阅了该主题的连接发送消息
+        function sendAll() {
+            var name = document.getElementById('name').value;
+            var message = { 'name': name };
+            console.log("向广播主题发送消息:" + message)
+            //example 是后端配置的目标前缀
+            stompClient.send("/example/sendAllConnect", {}, JSON.stringify(message));
         }
 
         //关闭连接
@@ -92,6 +103,7 @@
     <div id="conversationDiv">
         <label>向服务端发送消息:</label><input type="text" id="name" />
         <button id="sendName" onclick="sendName();">发送</button>
+        <button id="sendAll" onclick="sendAll();">向所有人发送</button>
         <p id="response"></p>
     </div>
 </div>
