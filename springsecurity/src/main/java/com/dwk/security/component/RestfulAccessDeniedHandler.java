@@ -1,7 +1,7 @@
 package com.dwk.security.component;
 
 import cn.hutool.json.JSONUtil;
-import com.sh.common.api.CommonResult;
+import com.dwk.security.result.CommonResult;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 
