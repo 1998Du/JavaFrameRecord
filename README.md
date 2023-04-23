@@ -15,7 +15,7 @@
 ### java-basic
     ->  java基础相关，集合、多线程等 专门用于研究底层
 ### jpa 
-    ->  jpa的简单使用，jpa底层是对hibernate的封装 如果简单sql的话用jpa是个很好的选择 但是复杂sql感觉还是mybatis好一点
+    ->  spring data jpa的简单使用，spring data jpa底层是对hibernate的封装 如果简单sql的话用jpa是个很好的选择 但是复杂sql感觉还是mybatis好一点
 ### jvm
     ->  jvm相关
 ### leetcode
