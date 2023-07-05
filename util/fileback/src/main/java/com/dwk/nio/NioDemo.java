@@ -1,7 +1,6 @@
 package com.dwk.nio;
 
 import com.dwk.properties.PathConfigProperties;
-import jdk.nashorn.internal.runtime.logging.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -20,7 +19,6 @@ import java.util.List;
 /**
  * nio 案例实现
  */
-@Logger
 @Service
 public class NioDemo {
 
