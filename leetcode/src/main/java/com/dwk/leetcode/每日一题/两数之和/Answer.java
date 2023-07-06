@@ -1,4 +1,4 @@
-package com.dwk.leetcode.两数之和;
+package com.dwk.leetcode.每日一题.两数之和;
 
 import java.util.Arrays;
 import java.util.HashMap;

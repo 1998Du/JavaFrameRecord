@@ -1,4 +1,4 @@
-package com.dwk.leetcode.找到小镇的法官;
+package com.dwk.leetcode.每日一题.找到小镇的法官;
 
 import java.util.ArrayList;
 import java.util.List;

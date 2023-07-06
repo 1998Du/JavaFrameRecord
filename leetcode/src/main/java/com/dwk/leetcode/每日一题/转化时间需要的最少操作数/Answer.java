@@ -1,4 +1,4 @@
-package com.dwk.leetcode.转化时间需要的最少操作数;
+package com.dwk.leetcode.每日一题.转化时间需要的最少操作数;
 
 public class Answer {
     public static void main(String[] args) {
