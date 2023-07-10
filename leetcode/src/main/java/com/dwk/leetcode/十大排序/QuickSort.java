@@ -4,7 +4,8 @@ package com.dwk.leetcode.十大排序;
 import java.util.Arrays;
 
 /**
- * 快速排序
+ * 快速排序（划分交换排序）
+ *      选中基准数，将比其大的分为一区 比其小的分为一区  再根据分区继续分区
  */
 public class QuickSort {
 

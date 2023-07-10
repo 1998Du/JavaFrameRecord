@@ -4,6 +4,7 @@ import java.util.Arrays;
 
 /**
  * 冒泡排序
+ *   每次找到 最大的 或者 最小的
  */
 public class BubblingSort {
 

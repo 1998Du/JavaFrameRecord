@@ -1,7 +1,7 @@
-冒泡排序
-插入排序
-快速排序
-希尔排序
+冒泡排序 - BubblingSort
+插入排序 - InsertSort
+快速排序 - QuickSort
+希尔排序 - HillSort
 选择排序
 堆排序
 归并排序

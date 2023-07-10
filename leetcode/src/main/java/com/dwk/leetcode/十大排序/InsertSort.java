@@ -3,7 +3,8 @@ package com.dwk.leetcode.十大排序;
 import java.util.Arrays;
 
 /**
- * 选择排序
+ * 插入排序
+ *   就像扑克排序，每次拿一个数和前面已经排好序的数比较
  */
 public class InsertSort {
 
