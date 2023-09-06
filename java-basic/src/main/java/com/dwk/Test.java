@@ -4,11 +4,34 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Calendar;
 
 public class Test {
 
     public static void main(String[] args) {
-        finallyTest();
+//        dayMath();
+        //finallyTest();
+        System.out.println(isPhone("18877776262"));
+    }
+
+    public static boolean isPhone(String str){
+        boolean result = false;
+        String rule = "^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\\d{8}$";
+        if (str.matches(rule)){
+            result = true;
+        }
+        return result;
+    }
+
+    /**
+     * 当前时间加减天数
+     */
+    public static void dayMath(){
+        LocalDateTime now = LocalDateTime.now();
+        String format = now.minusDays(180).format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss"));
+        System.out.println(format);
     }
 
     /**
