@@ -40,7 +40,8 @@
 		<module>springcloudgateway</module>
 		<module>websocket</module>
         <module>leetcode</module>
-    </modules>
+		<module>springsourcecode</module>
+	</modules>
 
 	<properties>
 		<java.version>1.8</java.version>
