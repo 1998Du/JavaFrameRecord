@@ -41,7 +41,9 @@
 		<module>websocket</module>
         <module>leetcode</module>
 		<module>springsourcecode</module>
-	</modules>
+        <module>BuyTickets</module>
+        <module>util/email</module>
+    </modules>
 
 	<properties>
 		<java.version>1.8</java.version>

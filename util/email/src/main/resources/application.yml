@@ -1,0 +1,32 @@
+#端口配置
+server:
+  port: 8824
+  servlet:
+    context-path: /${spring.application.name}/api #设置项目访问路径
+
+spring:
+  application:
+    name: email-util
+  #        解决启动时feign报错
+  main:
+    allow-bean-definition-overriding: true
+  mail:
+    host: smtp.163.com
+    username: 18574686671@163.com #发送方邮箱
+    password: UOGTSOFZGSSMHGPU
+    default-encoding: UTF-8
+    properties:
+      mail:
+        smtp:
+          port: 465
+    protocol: smtps
+  redis:
+    host: 192.168.1.67
+    port: 6379
+    password: admin123
+    database: 0
+    max-wait: 10000 #连接池阻塞等待时间(负数未无限制)
+    max-active: 6000 #连接池最大连接数(负数未无限制)
+    max-idle: 3000 #最大空闲连接
+    min-idle: 0 #最小空闲连接
+    timeout: 30000 #超时时间
