@@ -1,12 +1,16 @@
 package com.dwk;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import org.apache.commons.compress.archivers.zip.ZipArchiveEntry;
+import org.apache.commons.compress.archivers.zip.ZipFile;
+import org.apache.commons.compress.utils.IOUtils;
+
+import java.io.*;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 
 public class Test {
 
@@ -14,6 +18,81 @@ public class Test {
 //        dayMath();
         //finallyTest();
         System.out.println(isPhone("18877776262"));
+    }
+
+    // zip压缩包修复
+    public static void repairCorruptedZip(String inputZipFile, String outputZipFile) {
+        // 创建一个新的ZIP文件输出流
+        try (ZipFile zipFile = new ZipFile(new File(inputZipFile));
+             OutputStream out = new FileOutputStream(outputZipFile)) {
+
+            // 遍历ZIP文件中的所有条目
+            Enumeration<ZipArchiveEntry> entries = zipFile.getEntries();
+            while (entries.hasMoreElements()) {
+                ZipArchiveEntry entry = entries.nextElement();
+                try {
+                    // 读取条目内容并写入新的ZIP文件
+                    InputStream in = zipFile.getInputStream(entry);
+                    out.write(IOUtils.toByteArray(in));
+                } catch (IOException e) {
+                    System.err.println("Error processing entry: " + entry.getName());
+                }
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    // 解压缩zip文件
+    public static void unzip(String zipFilePath, String destDirectory) {
+        File destDir = new File(destDirectory);
+        if (!destDir.exists()) {
+            destDir.mkdir();
+        }
+        try {
+            ZipInputStream zipIn = new ZipInputStream(new FileInputStream(zipFilePath));
+            ZipEntry entry = zipIn.getNextEntry();
+            while (entry != null) {
+                String filePath = destDirectory + File.separator + entry.getName();
+                if (!entry.isDirectory()) {
+                    extractFile(zipIn, filePath);
+                } else {
+                    File dir = new File(filePath);
+                    dir.mkdir();
+                }
+                zipIn.closeEntry();
+                entry = zipIn.getNextEntry();
+            }
+            zipIn.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
+    }
+
+    private static void extractFile(ZipInputStream zipIn, String filePath) {
+        File file = new File(filePath);
+        file.getParentFile().mkdirs();
+        try (FileOutputStream fos = new FileOutputStream(file)) {
+            byte[] bytesIn = new byte[4096];
+            int read = 0;
+            while ((read = zipIn.read(bytesIn)) != -1) {
+                fos.write(bytesIn, 0, read);
+            }
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            e.printStackTrace();
+            throw new RuntimeException(e);
+        }
     }
 
     public static boolean isPhone(String str){

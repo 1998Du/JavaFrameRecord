@@ -41,7 +41,6 @@
 		<module>websocket</module>
         <module>leetcode</module>
 		<module>springsourcecode</module>
-        <module>BuyTickets</module>
         <module>util/email</module>
     </modules>
 
@@ -113,7 +112,6 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.11</version>
-			<scope>test</scope>
 		</dependency>
 		<!--spring-boot-test-->
 		<dependency>
