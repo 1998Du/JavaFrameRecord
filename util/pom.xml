@@ -12,8 +12,10 @@
     <artifactId>util</artifactId>
     <packaging>pom</packaging>
     <modules>
+        <module>email</module>
         <module>fileback</module>
         <module>rest-template</module>
+        <module>data-mask-common</module>
     </modules>
 
     <properties>

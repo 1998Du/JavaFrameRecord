@@ -12,8 +12,8 @@ spring:
     allow-bean-definition-overriding: true
   mail:
     host: smtp.163.com
-    username: 18574686671@163.com #发送方邮箱
-    password: UOGTSOFZGSSMHGPU
+    username:  # 发送方邮箱
+    password: # 邮箱授权码
     default-encoding: UTF-8
     properties:
       mail:

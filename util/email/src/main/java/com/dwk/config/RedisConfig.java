@@ -1,4 +1,4 @@
-package com.gykj.config;
+package com.dwk.config;
 
 import org.springframework.cache.annotation.CachingConfigurerSupport;
 import org.springframework.cache.annotation.EnableCaching;

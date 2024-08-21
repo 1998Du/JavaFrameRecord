@@ -8,3 +8,7 @@ spring boot和nacos版本需要对应
 spring boot: 2.4.x    nacos: 2.2.5.RELEASE
 
 spring boot: 2.3.2.RELEASE  nacos: 2.2.1.RELEASE
+
+
+
+nacos架构原理PDF：    https://developer.aliyun.com/ebook/36/read?spm=a2c6h.26392459.ebook-detail.4.1b845ac4Ttpb2h

@@ -1,4 +1,4 @@
-package com.gykj.result;
+package com.dwk.result;
 
 /**
  * 通用返回对象

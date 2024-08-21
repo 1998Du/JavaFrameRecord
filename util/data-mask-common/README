@@ -1,0 +1,37 @@
+使用方法：
+1、引入该模块
+
+2、在ORM映射类上添加 @DataMaskClass 注解
+   在需要加密的字段上添加 @DataMaskColumn 注解
+   mybatis执行的时候自定义插件中会对注解下的字段自动进行加解密
+
+3、如果sql执行返回结果不为表映射类，需要手动解密字段  AesUtil.decode();
+
+4、存量数据加密支持自定义配置表和加密字段名，配置格式如下：
+
+# 存量数据加解密配置    表名：{字段},注意：第一个字段一定要是主键，主键不会被加密
+data-mask:
+  config:
+    table1:
+      - id
+      - column1
+      - column2
+      - column3
+    table2:
+      - id
+      - column1
+      - column2
+      - column3
+
+5、注意(如果项目中引入包之后没有扫描到相关controller、service、dao层的bean可以将以下包移到工程中再运行)：
+controller
+dao
+properties
+result
+service
+resources
+
+
+ps：第5点中的包本来是放在引用该包的工程下的，，我给挪过来了   其实相当于业务层，业务层自己看着改就行了，核心的就是
+annotation、config、plugin、util    其他几个自己看着逻辑弄就好了；当然，也可以基于此结构优化、把controller
+层下的改成一个工具类让引用的工程中直接调用工具类做存量

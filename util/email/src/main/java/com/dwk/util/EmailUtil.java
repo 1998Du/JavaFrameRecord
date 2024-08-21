@@ -1,6 +1,6 @@
-package com.gykj.util;
+package com.dwk.util;
 
-import com.gykj.result.CommonResult;
+import com.dwk.result.CommonResult;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

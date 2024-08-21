@@ -41,7 +41,6 @@
 		<module>websocket</module>
         <module>leetcode</module>
 		<module>springsourcecode</module>
-        <module>util/email</module>
     </modules>
 
 	<properties>

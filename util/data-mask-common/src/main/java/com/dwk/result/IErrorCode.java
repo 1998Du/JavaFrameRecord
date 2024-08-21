@@ -1,4 +1,4 @@
-package com.gykj.result;
+package com.dwk.result;
 
 /**
  * 常用API返回对象接口

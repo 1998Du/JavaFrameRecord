@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.dwk.dao.DataMaskDao" >
+	<update id="update">
+		update ${tableName} set
+		<foreach collection="columnMap" index="key" item="value" separator=",">
+			${key} = #{value}
+		</foreach>
+		where ${primaryKey} = #{primaryValue}
+	</update>
+
+	<select id="query" resultType="java.util.Map">
+		select
+		<foreach collection="columns" item="item" index="index" separator=",">
+			${item}
+		</foreach>
+		from ${tableName}
+	</select>
+
+</mapper>
