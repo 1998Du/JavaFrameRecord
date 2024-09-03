@@ -5,10 +5,10 @@ import org.apache.commons.compress.archivers.zip.ZipFile;
 import org.apache.commons.compress.utils.IOUtils;
 
 import java.io.*;
+import java.text.SimpleDateFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Calendar;
-import java.util.Enumeration;
+import java.util.*;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -18,6 +18,26 @@ public class Test {
 //        dayMath();
         //finallyTest();
         System.out.println(isPhone("18877776262"));
+    }
+
+    /**
+     * 获取某月的每一天
+     * @param year
+     * @param month
+     * @return
+     */
+    public static List<String> getMonthDays(int year, int month) {
+        List<String> days = new ArrayList<>();
+        Calendar calendar = Calendar.getInstance();
+        calendar.set(year, month - 1, 1);
+        int maxDay = calendar.getActualMaximum(Calendar.DAY_OF_MONTH);
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        for (int i = 1; i <= maxDay; i++) {
+            calendar.set(Calendar.DAY_OF_MONTH, i);
+            Date date = calendar.getTime();
+            days.add(sdf.format(date));
+        }
+        return days;
     }
 
     // zip压缩包修复
