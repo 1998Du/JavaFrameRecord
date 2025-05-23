@@ -14,7 +14,7 @@ public interface ActivityRepository extends CrudRepository<ActivityBean,String> 
 
     /**操作活动表*/
     @Modifying
-    @Query("update user t set t.name =: name where t.id =: id")
+    @Query(value = "update user t set t.name =: name where t.id =: id",nativeQuery = true)
     int update(@Param("id") String id,@Param("name") String name);
 
 }
