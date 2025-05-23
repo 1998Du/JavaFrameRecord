@@ -39,6 +39,8 @@
     ->  oss对象存储
 ### redis
     ->  redis基础使用学习，分布式锁、分布式事务的实现还不包含 读写一致性也要研究一下
+### seata
+    ->  分布式事务解决方案 seata 
 ### sftp
     ->  基于jsch实现的一个ssh工具 上传已经实现
 ### springcloudgateway

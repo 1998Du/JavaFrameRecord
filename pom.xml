@@ -41,6 +41,7 @@
 		<module>websocket</module>
         <module>leetcode</module>
 		<module>springsourcecode</module>
+        <module>seata</module>
     </modules>
 
 	<properties>
